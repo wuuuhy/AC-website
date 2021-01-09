@@ -48,7 +48,7 @@ mouseVisibility('mouseleave');
 /*控制點擊活動*/
 
 const mouseClick = mouseEvent => {
-  document.addEventListener(`${mouseEvent}`, () => {
+  document.addEventListener(`${mouseEvent}`, e => {
     if (mouseEvent === 'mousedown') {
       cursorIn = true;
       mouseAnimation();
@@ -57,6 +57,7 @@ const mouseClick = mouseEvent => {
       mouseAnimation();
     } else if (mouseEvent === 'touchstart') {
       document.removeEventListener('mousedown', mouseAnimation());
+      e.preventDefault();
       cursorDot.style.opacity = '0';
       cursorDotOutline.style.opacity = '0';
     }
