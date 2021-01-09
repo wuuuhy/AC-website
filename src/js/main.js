@@ -38,9 +38,15 @@ const mouseVisibility = mouseEvent => {
     } else if (mouseEvent === 'mouseleave') {
       cursorDot.style.opacity = 0;
       cursorDotOutline.style.opacity = 0;
+    } else if (mouseEvent === 'touchstart') {
+      e.preventDefault();
+      cursorDot.style.opacity = 0;
+      cursorDotOutline.style.opacity = 0;
     }
   });
 };
+
+mouseVisibility('touchstart');
 mouseVisibility('mouseenter');
 mouseVisibility('mouseleave');
 
@@ -109,7 +115,6 @@ document.addEventListener('scroll', () => {
   background[4].style.top = -value * 0.6 + 'px';
   homeText.style.transform = `translate(-50%,${value * 0.3 + '%'})`;
 });
-console.log(background[3]);
 
 /*滾動效果*/
 
@@ -204,3 +209,8 @@ characters_1.forEach(element => characters_1Observer.observe(element));
 const characters_2Observer = new IntersectionObserver(animationGroup);
 characters_2.forEach(element => characters_2Observer.observe(element));
 */
+
+document.querySelector('.black').style.height = `${
+  document.body.offsetHeight + 'px'
+} `;
+console.log(`${document.body.offsetHeight + 'px'} `);
