@@ -38,15 +38,10 @@ const mouseVisibility = mouseEvent => {
     } else if (mouseEvent === 'mouseleave') {
       cursorDot.style.opacity = 0;
       cursorDotOutline.style.opacity = 0;
-    } else if (mouseEvent === 'touchstart') {
-      e.preventDefault();
-      cursorDot.style.opacity = 0;
-      cursorDotOutline.style.opacity = 0;
     }
   });
 };
 
-mouseVisibility('touchstart');
 mouseVisibility('mouseenter');
 mouseVisibility('mouseleave');
 
@@ -61,6 +56,7 @@ const mouseClick = mouseEvent => {
       cursorIn = false;
       mouseAnimation();
     } else if (mouseEvent === 'touchstart') {
+      document.removeEventListener('mousedown', mouseAnimation());
       cursorDot.style.opacity = '0';
       cursorDotOutline.style.opacity = '0';
     }
