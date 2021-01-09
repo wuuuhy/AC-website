@@ -16,6 +16,8 @@ const mouseAnimation = () => {
       (cursorDotOutline.style.opacity = 1));
 };
 
+document.addEventListener('touchstart', e => e.preventDefault());
+
 /*追蹤滑鼠位置*/
 document.addEventListener('mousemove', e => {
   cursorDot.style.opacity = '1';
@@ -55,15 +57,10 @@ const mouseClick = mouseEvent => {
     } else if (mouseEvent === 'mouseup') {
       cursorIn = false;
       mouseAnimation();
-    } else if (mouseEvent === 'touchstart') {
-      document.removeEventListener('mousedown', mouseAnimation());
-      e.preventDefault();
-      cursorDot.style.opacity = '0';
-      cursorDotOutline.style.opacity = '0';
     }
   });
 };
-mouseClick('touchstart');
+
 mouseClick('mousedown');
 mouseClick('mouseup');
 
@@ -210,4 +207,3 @@ characters_2.forEach(element => characters_2Observer.observe(element));
 document.querySelector('.black').style.height = `${
   document.body.offsetHeight + 'px'
 } `;
-console.log(`${document.body.offsetHeight + 'px'} `);

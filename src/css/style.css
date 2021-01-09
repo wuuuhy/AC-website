@@ -693,6 +693,9 @@ footer {
     line-height: 2rem; } }
 
 @media screen and (max-width: 500px) {
+  .scrollpath,
+  .scrollpath_blur {
+    opacity: 0; }
   .nav {
     font-size: 1.4rem; }
   .container__home:before {

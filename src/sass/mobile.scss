@@ -222,6 +222,11 @@
 
 //手機
 @include mediaSm {
+  .scrollpath,
+  .scrollpath_blur {
+    opacity: 0;
+  }
+
   .nav {
     font-size: 1.4rem;
   }
