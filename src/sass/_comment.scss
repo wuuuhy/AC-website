@@ -1,0 +1,48 @@
+.container__comment {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .comment__prise {
+    width: 60%;
+    color: $color-primary-light;
+    padding: 0 10rem;
+    font-family: $font-FiraSans;
+
+    p {
+      font-size: 1.8rem;
+      font-style: italic;
+      font-weight: 600;
+      letter-spacing: 0.12rem;
+      margin-bottom: 3rem;
+      line-height: 3rem;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: 0.1rem;
+      margin-bottom: 3rem;
+      text-align: right;
+    }
+
+    hr {
+      @include hr;
+    }
+  }
+
+  .comment__book {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+
+    img {
+      width: 50%;
+    }
+  }
+}

@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap');
+
+$color-primary-dark: #000000;
+$color-primary-light: #ffff;
+//--color-primary-dark:
+
+$cyan-light: #00ffff;
+
+$cursor-dot-outline-border: 0.1rem solid rgba(131, 197, 197, 0.63);
+
+$scrollpath-blur-color: rgba(0, 255, 255, 0.05);
+
+$font-TradeWinds: 'Trade Winds', cursive;
+$font-FiraSans: 'Fira Sans', sans-serif;
+
+@mixin hr {
+  margin: 2rem 0;
+  border: 0;
+  height: 0.1rem;
+  background-image: linear-gradient(
+    to right,
+    $color-primary-dark,
+    $cyan-light,
+    $color-primary-dark
+  );
+}
+
+@mixin btnBorder {
+  content: '';
+  position: absolute;
+  border-color: $cyan-light;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.6, 0, 0.08, 0.99);
+}
+
+/*動態*/
+
+@keyframes leftToRight {
+  from {
+    transform: translatex(3rem);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rightToLeft {
+  from {
+    transform: translateX(-3rem);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes topToBottom {
+  from {
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bottomToTop {
+  from {
+    transform: translateY(3rem);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $color-primary-dark;
+  -ms-overflow-style: none;
+  user-select: none;
+  cursor: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/*滑鼠*/
+
+.cursor-dot,
+.cursor-dot-outline {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 99;
+}
+
+.cursor-dot {
+  size: 0.8rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: $cyan-light;
+}
+
+.cursor-dot-outline {
+  size: 4rem;
+  width: 4rem;
+  height: 4rem;
+  border: 0.1rem solid rgba(131, 197, 197, 0.63);
+  transition: 0.2s ease-out;
+}
+
+/*進度條*/
+
+.scrollpath {
+  position: fixed;
+  width: 0.6rem;
+  top: 0;
+  right: 0;
+  background-color: $cyan-light;
+  z-index: 11;
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: $cyan-light;
+    filter: blur(5px);
+  }
+}
+
+.scrollpath_blur {
+  position: fixed;
+  width: 0.6rem;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  background-color: $cyan-light;
+  opacity: 0.05;
+  z-index: 99;
+}
+
+/*返回最上面按鍵*/
+.gotop-btn {
+  position: fixed;
+  bottom: 3rem;
+  right: 4rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  color: $color-primary-light;
+  border: 0.1rem solid $cyan-light;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: none;
+  transition: all 0.3s ease-out;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: $cyan-light;
+    opacity: 1;
+    transform: translateY(-0.7rem);
+
+    &:hover a {
+      color: $color-primary-dark;
+      font-size: 2.7rem;
+    }
+  }
+
+  a {
+    color: $color-primary-light;
+    text-decoration: none;
+    font-size: 2.5rem;
+    cursor: none;
+    transition: all 0.2s ease-out;
+  }
+}
+
+footer {
+  position: relative;
+  width: 100vw;
+  text-align: center;
+  padding: 1.5rem 0;
+  p {
+    font-family: $font-FiraSans;
+    letter-spacing: 0.1rem;
+    color: $color-primary-light;
+  }
+}
+
+@mixin mediaSm {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin mediaMd {
+  @media screen and (min-width: 500px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  @media screen and (min-width: 768px) and (max-width: 1170px) {
+    @content;
+  }
+}
+
+@mixin mediaXl {
+  @media screen and (min-width: 1170px) {
+    @content;
+  }
+}

@@ -1,0 +1,730 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap");
+/*動態*/
+@keyframes leftToRight {
+  from {
+    transform: translatex(3rem); }
+  to {
+    opacity: 1; } }
+
+@keyframes rightToLeft {
+  from {
+    transform: translateX(-3rem); }
+  to {
+    opacity: 1; } }
+
+@keyframes topToBottom {
+  from {
+    transform: translateY(-3rem); }
+  to {
+    opacity: 1; } }
+
+@keyframes bottomToTop {
+  from {
+    transform: translateY(3rem); }
+  to {
+    opacity: 1; } }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth; }
+
+body {
+  background-color: #000000;
+  -ms-overflow-style: none;
+  user-select: none;
+  cursor: none; }
+
+body::-webkit-scrollbar {
+  display: none; }
+
+/*滑鼠*/
+.cursor-dot,
+.cursor-dot-outline {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 99; }
+
+.cursor-dot {
+  size: 0.8rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: #00ffff; }
+
+.cursor-dot-outline {
+  size: 4rem;
+  width: 4rem;
+  height: 4rem;
+  border: 0.1rem solid rgba(131, 197, 197, 0.63);
+  transition: 0.2s ease-out; }
+
+/*進度條*/
+.scrollpath {
+  position: fixed;
+  width: 0.6rem;
+  top: 0;
+  right: 0;
+  background-color: #00ffff;
+  z-index: 11; }
+  .scrollpath:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: #00ffff;
+    filter: blur(5px); }
+
+.scrollpath_blur {
+  position: fixed;
+  width: 0.6rem;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  background-color: #00ffff;
+  opacity: 0.05;
+  z-index: 99; }
+
+/*返回最上面按鍵*/
+.gotop-btn {
+  position: fixed;
+  bottom: 3rem;
+  right: 4rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  color: #ffff;
+  border: 0.1rem solid #00ffff;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: none;
+  transition: all 0.3s ease-out;
+  opacity: 0.5; }
+  .gotop-btn:hover {
+    background-color: #00ffff;
+    opacity: 1;
+    transform: translateY(-0.7rem); }
+    .gotop-btn:hover:hover a {
+      color: #000000;
+      font-size: 2.7rem; }
+  .gotop-btn a {
+    color: #ffff;
+    text-decoration: none;
+    font-size: 2.5rem;
+    cursor: none;
+    transition: all 0.2s ease-out; }
+
+footer {
+  position: relative;
+  width: 100vw;
+  text-align: center;
+  padding: 1.5rem 0; }
+  footer p {
+    font-family: "Fira Sans", sans-serif;
+    letter-spacing: 0.1rem;
+    color: #ffff; }
+
+.meun {
+  position: fixed;
+  width: 100vw;
+  padding: 2rem 0;
+  z-index: 10;
+  top: 0;
+  left: 0; }
+
+.nav {
+  font-family: "Trade Winds", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  font-size: 2rem; }
+  .nav__item {
+    margin: 0 2rem; }
+    .nav__item a {
+      color: #ffff;
+      text-decoration: none;
+      opacity: 0.6;
+      transition: all 0.5s cubic-bezier(0.84, 0, 0.08, 0.99);
+      cursor: none; }
+    .nav__item a:hover {
+      opacity: 1; }
+    .nav__item span {
+      position: relative; }
+    .nav__item span:before {
+      position: absolute;
+      width: 0%;
+      color: cyan;
+      overflow: hidden;
+      content: attr(data-text);
+      transition: all 0.5s cubic-bezier(0.6, 0, 0.08, 0.99); }
+    .nav__item span:hover:before {
+      width: 100%; }
+
+.container__home {
+  position: relative;
+  width: 100vw;
+  height: 100vh; }
+  .container__home:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 30rem;
+    bottom: 0;
+    background: linear-gradient(to top, #000000 35%, transparent);
+    z-index: 9; }
+  .container__home .black {
+    position: absolute;
+    height: 100vh;
+    width: 0%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    z-index: 11;
+    animation: blankslide 2s cubic-bezier(0.6, 0, 0.05, 0.99); }
+  .container__home .home__text {
+    position: absolute;
+    width: 100%;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    color: #ffff;
+    font-family: "Trade Winds", cursive;
+    font-size: 6rem;
+    letter-spacing: 1rem;
+    text-align: center; }
+  .container__home .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom; }
+    .container__home .background:nth-child(1) {
+      background-image: url(/image/bg.png);
+      z-index: 2; }
+    .container__home .background:nth-child(2) {
+      background-image: url(/image/bg_4.png);
+      z-index: 3; }
+      .container__home .background:nth-child(2):before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 10rem;
+        bottom: 0;
+        background: linear-gradient(to top, #000000, transparent);
+        z-index: 3; }
+    .container__home .background:nth-child(3) {
+      background-image: url(/image/bg_3.png);
+      z-index: 4; }
+    .container__home .background:nth-child(4) {
+      background-image: url(/image/bg_2.png);
+      z-index: 5; }
+    .container__home .background:nth-child(5) {
+      background-image: url(/image/bg_1.png);
+      z-index: 6;
+      transform: translateY(8rem); }
+  .container__home .home__btn {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    z-index: 10;
+    background-color: rgba(0, 255, 255, 0.3);
+    font-size: 2.2rem;
+    padding: 1.5rem 3rem;
+    transition: all 0.4s cubic-bezier(0.6, 0, 0.08, 0.99);
+    text-align: center;
+    text-transform: capitalize; }
+    .container__home .home__btn a {
+      font-family: "Fira Sans", sans-serif;
+      color: #ffff;
+      letter-spacing: 0.5rem;
+      text-decoration: none;
+      cursor: none; }
+    .container__home .home__btn:hover {
+      top: 58%;
+      background-color: cyan;
+      box-shadow: 0 0 10px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff; }
+  .container__home .mousedown-icon {
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11; }
+    .container__home .mousedown-icon i {
+      font-size: 2rem;
+      color: #ffff;
+      opacity: 0.3;
+      animation: mousedown 1.5s ease-out infinite; }
+
+@keyframes blankslide {
+  0% {
+    width: 100%;
+    left: 0; }
+  100% {
+    left: 100%; } }
+
+@keyframes mousedown {
+  to {
+    transform: translateY(2rem);
+    font-size: 3rem;
+    opacity: 1; } }
+
+.container__about {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 9; }
+  .container__about .about__video {
+    width: 55%;
+    padding: 0 5rem; }
+    .container__about .about__video .iframe-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      left: 0%;
+      opacity: 0; }
+    .container__about .about__video .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+  .container__about .about__intro {
+    width: 40%;
+    padding: 0rem 7rem;
+    color: #ffff; }
+    .container__about .about__intro h3 {
+      font-size: 2rem;
+      font-family: "Trade Winds", cursive;
+      letter-spacing: 0.15rem; }
+    .container__about .about__intro p {
+      font-size: 1.5rem;
+      font-family: "Fira Sans", sans-serif;
+      letter-spacing: 0.1rem;
+      line-height: 2.5rem; }
+    .container__about .about__intro hr {
+      margin: 2rem 0;
+      border: 0;
+      height: 0.1rem;
+      background-image: linear-gradient(to right, #000000, #00ffff, #000000); }
+
+.container__comment {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  .container__comment .comment__prise {
+    width: 60%;
+    color: #ffff;
+    padding: 0 10rem;
+    font-family: "Fira Sans", sans-serif; }
+    .container__comment .comment__prise p {
+      font-size: 1.8rem;
+      font-style: italic;
+      font-weight: 600;
+      letter-spacing: 0.12rem;
+      margin-bottom: 3rem;
+      line-height: 3rem; }
+    .container__comment .comment__prise h1 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: 0.1rem;
+      margin-bottom: 3rem;
+      text-align: right; }
+    .container__comment .comment__prise hr {
+      margin: 2rem 0;
+      border: 0;
+      height: 0.1rem;
+      background-image: linear-gradient(to right, #000000, #00ffff, #000000); }
+  .container__comment .comment__book {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    opacity: 0; }
+    .container__comment .comment__book img {
+      width: 50%; }
+
+.container__characters {
+  position: relative;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  .container__characters .characters {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start; }
+    .container__characters .characters__item {
+      width: 20%;
+      text-align: center;
+      color: #ffff;
+      margin: 0 2rem; }
+      .container__characters .characters__item h3 {
+        transform: translateY(3rem);
+        font-family: "Trade Winds", cursive;
+        font-size: 2rem;
+        letter-spacing: 0.2rem;
+        opacity: 0;
+        transition: all 0.8s cubic-bezier(0.6, 0, 0.08, 0.99); }
+      .container__characters .characters__item-pic {
+        width: 100%;
+        filter: grayscale(80%);
+        margin: 1rem 0; }
+        .container__characters .characters__item-pic:hover {
+          box-shadow: 0 0 5px #00ffff, 0 0 20px #00ffff, 0 0 100px #00ffff;
+          transition: 0.4s ease-in-out;
+          filter: grayscale(0%); }
+      .container__characters .characters__item p {
+        transform: translateY(-2rem);
+        font-family: "Fira Sans", sans-serif;
+        font-size: 1.2rem;
+        opacity: 0;
+        text-align: left;
+        letter-spacing: 0.1rem;
+        line-height: 2rem;
+        transition: all 0.8s cubic-bezier(0.6, 0, 0.08, 0.99); }
+      .container__characters .characters__item:hover h3,
+      .container__characters .characters__item:hover p {
+        opacity: 1;
+        transform: translateY(0rem); }
+
+.container__end {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; }
+  .container__end .slide {
+    width: 55%;
+    height: 50%;
+    background-color: azure;
+    overflow: hidden; }
+    .container__end .slide__box {
+      width: 400%;
+      height: 100%;
+      background-color: bisque;
+      animation: slide 15s ease infinite; }
+      .container__end .slide__box .img {
+        float: left;
+        width: 25%;
+        height: 100%;
+        background-size: cover;
+        background-position: center; }
+        .container__end .slide__box .img:nth-child(1) {
+          background-image: url(/image/poster_.jpg); }
+        .container__end .slide__box .img:nth-child(2) {
+          background-image: url(/image/poster_2.jpg); }
+        .container__end .slide__box .img:nth-child(3) {
+          background-image: url(/image/poster_3.jpg); }
+        .container__end .slide__box .img:nth-child(4) {
+          background-image: url(/image/poster_4.jpg); }
+  .container__end .netflix {
+    width: 30%;
+    text-align: center;
+    cursor: none; }
+    .container__end .netflix-text {
+      color: #00ffff;
+      font-family: "Fira Sans", sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 0.3rem; }
+    .container__end .netflix-btn {
+      position: relative;
+      margin: 4rem auto;
+      width: 30rem;
+      padding: 1.5rem 3rem;
+      font-size: 2rem;
+      letter-spacing: 0.3rem;
+      line-height: 4rem;
+      font-weight: 800;
+      font-family: "Trade Winds", cursive;
+      text-transform: uppercase; }
+      .container__end .netflix-btn:before {
+        top: 0;
+        left: 0;
+        border-top: 0.3rem solid #00ffff;
+        border-left: 0.3rem solid #00ffff;
+        content: '';
+        position: absolute;
+        border-color: #00ffff;
+        width: 1.5rem;
+        height: 1.5rem;
+        transition: all 0.4s cubic-bezier(0.6, 0, 0.08, 0.99); }
+      .container__end .netflix-btn:after {
+        bottom: 0;
+        right: 0;
+        border-bottom: 0.3rem solid #00ffff;
+        border-right: 0.3rem solid #00ffff;
+        content: '';
+        position: absolute;
+        border-color: #00ffff;
+        width: 1.5rem;
+        height: 1.5rem;
+        transition: all 0.4s cubic-bezier(0.6, 0, 0.08, 0.99); }
+      .container__end .netflix-btn:hover:before, .container__end .netflix-btn:hover:after {
+        width: 100%;
+        height: 100%; }
+      .container__end .netflix-btn:hover {
+        background-color: #00ffff;
+        box-shadow: 0 0 5rem #00ffff;
+        transition: all 0.4s cubic-bezier(0.6, 0, 0.08, 0.99);
+        transition-delay: 0.1s; }
+      .container__end .netflix-btn a {
+        color: #00ffff;
+        text-decoration: none; }
+      .container__end .netflix-btn:hover a {
+        color: #000000;
+        transition: all 0.4s cubic-bezier(0.6, 0, 0.08, 0.99);
+        transition-delay: 0.1s; }
+
+@keyframes slide {
+  20% {
+    margin-left: 0rem; }
+  30% {
+    margin-left: -100%; }
+  50% {
+    margin-left: -100%; }
+  60% {
+    margin-left: -200%; }
+  70% {
+    margin-left: -200%; }
+  80% {
+    margin-left: -300%; }
+  90% {
+    margin-left: -300%; } }
+
+@media screen and (min-width: 768px) and (max-width: 1170px) {
+  .container__home:before {
+    height: 40rem; }
+  .container__home .home__text {
+    top: 30%;
+    font-size: 5rem; }
+  .container__home .background:nth-child(5) {
+    transform: translateY(10rem); }
+  .container__about .about__video {
+    justify-self: center;
+    padding: 0 2rem; }
+  .container__about .about__intro {
+    padding: 0rem 5rem; }
+    .container__about .about__intro h3 {
+      font-size: 1.5rem;
+      line-height: 2rem; }
+    .container__about .about__intro p {
+      font-size: 1.2rem;
+      line-height: 2rem; }
+  .container__comment .comment__prise {
+    width: 60%;
+    padding: 0rem 2rem;
+    margin-left: 4rem; }
+    .container__comment .comment__prise p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      line-height: 2rem; }
+    .container__comment .comment__prise h1 {
+      font-size: 1.2rem; }
+  .container__comment .comment__book img {
+    width: 60%; }
+  .container__characters .characters {
+    width: 100%;
+    justify-content: center;
+    padding: 0 3rem; }
+    .container__characters .characters__item {
+      margin: 0 1.5rem; }
+      .container__characters .characters__item-pic {
+        width: 100%;
+        margin: 2rem 0; }
+  .container__end .slide {
+    height: 40%; }
+  .container__end .netflix-text {
+    font-size: 2rem; }
+  .container__end .netflix-btn {
+    margin: 5rem auto;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem; } }
+
+@media screen and (min-width: 500px) and (max-width: 768px) {
+  .nav {
+    font-size: 1.6rem; }
+  .container__home:before {
+    height: 15rem; }
+  .container__home .home__text {
+    top: 25%;
+    font-size: 3rem; }
+  .container__home .background:nth-child(5) {
+    transform: translateY(5rem); }
+  .container__home .home__btn {
+    font-size: 1.5rem; }
+    .container__home .home__btn:hover {
+      font-size: 1.7rem; }
+  .container__about .about__video {
+    justify-self: center;
+    padding: 0 2rem; }
+  .container__about .about__intro {
+    margin-right: 1rem;
+    padding: 0rem 0rem; }
+    .container__about .about__intro h3 {
+      font-size: 1rem;
+      line-height: 2rem; }
+    .container__about .about__intro p {
+      font-size: 1rem;
+      line-height: 2rem; }
+    .container__about .about__intro hr {
+      margin: 1rem 0; }
+  .container__comment .comment__prise {
+    padding: 0rem 2rem;
+    margin-left: 4rem; }
+    .container__comment .comment__prise p {
+      font-size: 1rem;
+      line-height: 2rem;
+      margin-bottom: 1rem; }
+    .container__comment .comment__prise h1 {
+      font-size: 0.7rem;
+      margin-bottom: 1rem; }
+    .container__comment .comment__prise hr {
+      margin: 1.5rem 0; }
+  .container__comment .comment__book {
+    margin-bottom: 0; }
+    .container__comment .comment__book img {
+      width: 60%; }
+  .container__characters .characters {
+    width: 100%;
+    justify-content: center;
+    padding: 0 3rem; }
+    .container__characters .characters__item {
+      margin: 0 1.5rem; }
+      .container__characters .characters__item h3 {
+        font-size: 1rem; }
+      .container__characters .characters__item-pic {
+        width: 100%;
+        margin: 1rem 0; }
+      .container__characters .characters__item p {
+        font-size: 0.7rem;
+        line-height: 1.5rem; }
+  .container__end .slide {
+    width: 50%;
+    height: 60%; }
+  .container__end .netflix-text {
+    font-size: 1.3rem; }
+  .container__end .netflix-btn {
+    margin: 2rem auto;
+    width: 15rem;
+    font-size: 0.5rem;
+    padding: 1rem 1rem; } }
+
+@media screen and (max-width: 500px) {
+  .nav {
+    font-size: 1.4rem; }
+  .container__home:before {
+    height: 45rem; }
+  .container__home .home__text {
+    opacity: 0; }
+  .container__home .background:nth-child(5) {
+    transform: translateY(15rem); }
+  .container__about {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; }
+    .container__about .about__video {
+      width: 100%;
+      justify-self: center;
+      padding: 0 3rem; }
+    .container__about .about__intro {
+      width: 100%;
+      padding: 0rem 6rem; }
+      .container__about .about__intro h3 {
+        font-size: 1.5rem;
+        font-weight: 200;
+        line-height: 2.5rem; }
+      .container__about .about__intro p {
+        font-size: 1.5rem;
+        line-height: 2.5rem; }
+      .container__about .about__intro hr {
+        margin: 2rem 0; }
+  .container__comment {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center; }
+    .container__comment .comment__prise {
+      width: 100%;
+      padding: 2rem 6rem; }
+      .container__comment .comment__prise p {
+        font-size: 1.5rem;
+        line-height: 2.5rem; }
+      .container__comment .comment__prise h1 {
+        font-size: 1rem;
+        text-align: center; }
+    .container__comment .comment__book {
+      width: 100%;
+      margin-bottom: 2rem; }
+      .container__comment .comment__book img {
+        width: 50%; }
+  .container__characters {
+    padding-top: 15rem; }
+    .container__characters .characters {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      .container__characters .characters__item {
+        width: 100%; }
+        .container__characters .characters__item-pic {
+          width: 50%;
+          margin: 2.5rem 0; }
+        .container__characters .characters__item p {
+          text-align: center; }
+  .container__end {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 70vh;
+    margin-top: 2rem; }
+    .container__end .slide {
+      width: 80%;
+      height: 45%; }
+    .container__end .netflix {
+      width: 100%;
+      text-align: center;
+      cursor: none; }
+      .container__end .netflix-text {
+        font-size: 2rem;
+        letter-spacing: 0.3rem; }
+      .container__end .netflix-btn {
+        font-size: 1rem; } }

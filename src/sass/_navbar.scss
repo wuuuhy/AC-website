@@ -1,0 +1,49 @@
+.meun {
+  position: fixed;
+  width: 100vw;
+  padding: 2rem 0;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+
+.nav {
+  font-family: $font-TradeWinds;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  font-size: 2rem;
+
+  &__item {
+    margin: 0 2rem;
+    a {
+      color: $color-primary-light;
+      text-decoration: none;
+      opacity: 0.6;
+      transition: all 0.5s cubic-bezier(0.84, 0, 0.08, 0.99);
+      cursor: none;
+    }
+
+    a:hover {
+      opacity: 1;
+    }
+
+    span {
+      position: relative;
+    }
+
+    span:before {
+      position: absolute;
+      width: 0%;
+      color: cyan;
+      overflow: hidden;
+      content: attr(data-text);
+      transition: all 0.5s cubic-bezier(0.6, 0, 0.08, 0.99);
+    }
+
+    span:hover:before {
+      width: 100%;
+    }
+  }
+}

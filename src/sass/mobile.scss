@@ -1,0 +1,366 @@
+@include mediaXl {
+}
+
+//小裝置螢幕
+@include mediaLg {
+  .container__home {
+    &:before {
+      height: 40rem;
+    }
+
+    .home__text {
+      top: 30%;
+      font-size: 5rem;
+    }
+
+    .background {
+      &:nth-child(5) {
+        transform: translateY(10rem);
+      }
+    }
+  }
+
+  .container__about {
+    .about__video {
+      justify-self: center;
+      padding: 0 2rem;
+    }
+    .about__intro {
+      padding: 0rem 5rem;
+
+      h3 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 2rem;
+      }
+    }
+  }
+
+  .container__comment {
+    .comment__prise {
+      width: 60%;
+      padding: 0rem 2rem;
+      margin-left: 4rem;
+
+      p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        line-height: 2rem;
+      }
+
+      h1 {
+        font-size: 1.2rem;
+      }
+    }
+
+    .comment__book {
+      img {
+        width: 60%;
+      }
+    }
+  }
+
+  .container__characters {
+    .characters {
+      width: 100%;
+      justify-content: center;
+      padding: 0 3rem;
+
+      &__item {
+        margin: 0 1.5rem;
+
+        &-pic {
+          width: 100%;
+          margin: 2rem 0;
+        }
+      }
+    }
+  }
+
+  .container__end {
+    .slide {
+      height: 40%;
+    }
+
+    .netflix {
+      &-text {
+        font-size: 2rem;
+      }
+
+      &-btn {
+        margin: 5rem auto;
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+      }
+    }
+  }
+}
+
+//平板
+@include mediaMd {
+  .nav {
+    font-size: 1.6rem;
+  }
+
+  .container__home {
+    &:before {
+      height: 15rem;
+    }
+
+    .home__text {
+      top: 25%;
+      font-size: 3rem;
+    }
+
+    .background {
+      &:nth-child(5) {
+        transform: translateY(5rem);
+      }
+    }
+    .home__btn {
+      font-size: 1.5rem;
+
+      &:hover {
+        font-size: 1.7rem;
+      }
+    }
+  }
+
+  .container__about {
+    .about__video {
+      justify-self: center;
+      padding: 0 2rem;
+    }
+    .about__intro {
+      margin-right: 1rem;
+      padding: 0rem 0rem;
+
+      h3 {
+        font-size: 1rem;
+        line-height: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 2rem;
+      }
+
+      hr {
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  .container__comment {
+    .comment__prise {
+      padding: 0rem 2rem;
+      margin-left: 4rem;
+
+      p {
+        font-size: 1rem;
+        line-height: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: 0.7rem;
+        margin-bottom: 1rem;
+      }
+      hr {
+        margin: 1.5rem 0;
+      }
+    }
+
+    .comment__book {
+      margin-bottom: 0;
+
+      img {
+        width: 60%;
+      }
+    }
+  }
+
+  .container__characters {
+    .characters {
+      width: 100%;
+      justify-content: center;
+      padding: 0 3rem;
+
+      &__item {
+        margin: 0 1.5rem;
+        h3 {
+          font-size: 1rem;
+        }
+
+        &-pic {
+          width: 100%;
+          margin: 1rem 0;
+        }
+
+        p {
+          font-size: 0.7rem;
+          line-height: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .container__end {
+    .slide {
+      width: 50%;
+      height: 60%;
+    }
+
+    .netflix {
+      &-text {
+        font-size: 1.3rem;
+      }
+
+      &-btn {
+        margin: 2rem auto;
+        width: 15rem;
+        font-size: 0.5rem;
+        padding: 1rem 1rem;
+      }
+    }
+  }
+}
+
+//手機
+@include mediaSm {
+  .nav {
+    font-size: 1.4rem;
+  }
+
+  .container__home {
+    &:before {
+      height: 45rem;
+    }
+
+    .home__text {
+      opacity: 0;
+    }
+
+    .background {
+      &:nth-child(5) {
+        transform: translateY(15rem);
+      }
+    }
+  }
+
+  .container__about {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    .about__video {
+      width: 100%;
+      justify-self: center;
+      padding: 0 3rem;
+    }
+
+    .about__intro {
+      width: 100%;
+      padding: 0rem 6rem;
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 200;
+        line-height: 2.5rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+      }
+
+      hr {
+        margin: 2rem 0;
+      }
+    }
+  }
+
+  .container__comment {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+
+    .comment__prise {
+      width: 100%;
+      padding: 2rem 6rem;
+
+      p {
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+      }
+
+      h1 {
+        font-size: 1rem;
+        text-align: center;
+      }
+    }
+
+    .comment__book {
+      width: 100%;
+      margin-bottom: 2rem;
+
+      img {
+        width: 50%;
+      }
+    }
+  }
+
+  .container__characters {
+    padding-top: 15rem;
+
+    .characters {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__item {
+        width: 100%;
+        &-pic {
+          width: 50%;
+          margin: 2.5rem 0;
+        }
+
+        p {
+          text-align: center;
+        }
+      }
+    }
+  }
+  .container__end {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 70vh;
+    margin-top: 2rem;
+
+    .slide {
+      width: 80%;
+      height: 45%;
+    }
+
+    .netflix {
+      width: 100%;
+      text-align: center;
+      cursor: none;
+
+      &-text {
+        font-size: 2rem;
+        letter-spacing: 0.3rem;
+      }
+
+      &-btn {
+        font-size: 1rem;
+      }
+    }
+  }
+}

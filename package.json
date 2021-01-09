@@ -1,0 +1,14 @@
+{
+  "name": "altered-carbon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "compile:scss": "node-sass src/sass/main.scss src/css/style.css -w"
+  },
+  "author": "wuuuly",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
