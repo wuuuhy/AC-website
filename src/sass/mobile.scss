@@ -56,12 +56,6 @@
         font-size: 1.2rem;
       }
     }
-
-    .comment__book {
-      img {
-        width: 60%;
-      }
-    }
   }
 
   .container__characters {
@@ -177,10 +171,6 @@
 
     .comment__book {
       margin-bottom: 0;
-
-      img {
-        width: 60%;
-      }
     }
   }
 
@@ -221,10 +211,10 @@
       }
 
       &-btn {
-        margin: 2rem auto;
-        width: 15rem;
+        width: 20rem;
         font-size: 0.5rem;
-        padding: 1rem 1rem;
+        padding: 1rem 1.5rem;
+        line-height: 2rem;
       }
     }
   }
@@ -306,11 +296,7 @@
 
     .comment__book {
       width: 100%;
-      margin-bottom: 2rem;
-
-      img {
-        width: 50%;
-      }
+      margin-bottom: 4rem;
     }
   }
 

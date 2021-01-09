@@ -58,7 +58,8 @@ body::-webkit-scrollbar {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  z-index: 99; }
+  z-index: 99;
+  opacity: 0; }
 
 .cursor-dot {
   size: 0.8rem;
@@ -412,12 +413,14 @@ footer {
       height: 0.1rem;
       background-image: linear-gradient(to right, #000000, #00ffff, #000000); }
   .container__comment .comment__book {
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    opacity: 0; }
-    .container__comment .comment__book img {
-      width: 50%; }
+    width: 30%;
+    height: 70%;
+    margin: 0 3rem;
+    opacity: 0;
+    background-image: url(/image/book_1.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; }
 
 .container__characters {
   position: relative;
@@ -605,8 +608,6 @@ footer {
       line-height: 2rem; }
     .container__comment .comment__prise h1 {
       font-size: 1.2rem; }
-  .container__comment .comment__book img {
-    width: 60%; }
   .container__characters .characters {
     width: 100%;
     justify-content: center;
@@ -667,8 +668,6 @@ footer {
       margin: 1.5rem 0; }
   .container__comment .comment__book {
     margin-bottom: 0; }
-    .container__comment .comment__book img {
-      width: 60%; }
   .container__characters .characters {
     width: 100%;
     justify-content: center;
@@ -689,10 +688,10 @@ footer {
   .container__end .netflix-text {
     font-size: 1.3rem; }
   .container__end .netflix-btn {
-    margin: 2rem auto;
-    width: 15rem;
+    width: 20rem;
     font-size: 0.5rem;
-    padding: 1rem 1rem; } }
+    padding: 1rem 1.5rem;
+    line-height: 2rem; } }
 
 @media screen and (max-width: 500px) {
   .nav {
@@ -738,9 +737,7 @@ footer {
         text-align: center; }
     .container__comment .comment__book {
       width: 100%;
-      margin-bottom: 2rem; }
-      .container__comment .comment__book img {
-        width: 50%; }
+      margin-bottom: 4rem; }
   .container__characters {
     padding-top: 15rem; }
     .container__characters .characters {

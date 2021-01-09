@@ -18,6 +18,8 @@ const mouseAnimation = () => {
 
 /*追蹤滑鼠位置*/
 document.addEventListener('mousemove', e => {
+  cursorDot.style.opacity = '1';
+  cursorDotOutline.style.opacity = '1';
   const cursorposition = cursor => {
     cursor.style.top = e.pageY + 'px';
     cursor.style.left = e.pageX + 'px';
@@ -52,9 +54,13 @@ const mouseClick = mouseEvent => {
     } else if (mouseEvent === 'mouseup') {
       cursorIn = false;
       mouseAnimation();
+    } else if (mouseEvent === 'touchstart') {
+      cursorDot.style.opacity = '0';
+      cursorDotOutline.style.opacity = '0';
     }
   });
 };
+mouseClick('touchstart');
 mouseClick('mousedown');
 mouseClick('mouseup');
 
@@ -97,8 +103,7 @@ const [background] = [backgroundAll];
 document.addEventListener('scroll', () => {
   const value = window.scrollY;
 
-  background[0].style.top = value * 0.1 + 'px';
-  background[1].style.top = -value * 0.1 + 'px';
+  background[1].style.top = -value * 0.2 + 'px';
   background[2].style.top = -value * 0.3 + 'px';
   background[3].style.top = -value * 0.3 + 'px';
   background[4].style.top = -value * 0.6 + 'px';

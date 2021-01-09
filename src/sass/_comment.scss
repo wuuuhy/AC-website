@@ -36,13 +36,13 @@
   }
 
   .comment__book {
-    width: 40%;
-    display: flex;
-    justify-content: center;
+    width: 30%;
+    height: 70%;
+    margin: 0 3rem;
     opacity: 0;
-
-    img {
-      width: 50%;
-    }
+    background-image: url(/image/book_1.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
