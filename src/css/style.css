@@ -132,6 +132,64 @@ body::-webkit-scrollbar {
     cursor: none;
     transition: all 0.2s ease-out; }
 
+.Loading {
+  position: absolute;
+  width: 100vw;
+  height: 100vh; }
+  .Loading .black {
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    background-color: black;
+    animation: blankslide 8s cubic-bezier(0.6, 0, 0.05, 0.99); }
+  .Loading .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11; }
+    .Loading .icon img {
+      display: block;
+      margin: 0 auto;
+      width: 35%;
+      opacity: 0;
+      transform-origin: center;
+      animation: loadingicon 6s 1s ease-out; }
+
+@keyframes blankslide {
+  1% {
+    width: 100%;
+    left: 0; }
+  90% {
+    width: 100%;
+    left: 0; }
+  100% {
+    width: 0%;
+    left: 100%; } }
+
+@keyframes loadingicon {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg); }
+  10% {
+    opacity: 1;
+    transform: rotate(0deg); }
+  30% {
+    transform: rotate(180deg); }
+  50% {
+    transform: rotate(360deg); }
+  70% {
+    transform: rotate(540deg); }
+  90% {
+    transform: rotate(720deg);
+    opacity: 1; }
+  100% {
+    transform: rotate(720deg);
+    opacity: 0; } }
+
 footer {
   position: relative;
   width: 100vw;
@@ -191,15 +249,6 @@ footer {
     bottom: 0;
     background: linear-gradient(to top, #000000 35%, transparent);
     z-index: 9; }
-  .container__home .black {
-    position: absolute;
-    height: 100vh;
-    width: 0%;
-    top: 0;
-    left: 0;
-    background-color: black;
-    z-index: 11;
-    animation: blankslide 2s cubic-bezier(0.6, 0, 0.05, 0.99); }
   .container__home .home__text {
     position: absolute;
     width: 100%;
@@ -242,9 +291,9 @@ footer {
       background-image: url(/image/bg_2.png);
       z-index: 5; }
     .container__home .background:nth-child(5) {
-      background-image: url(/image/bg_1.png);
+      background-image: url(/image/bg_11.png);
       z-index: 6;
-      transform: translateY(8rem); }
+      transform: translateY(20rem); }
   .container__home .home__btn {
     position: absolute;
     top: 60%;
@@ -273,19 +322,12 @@ footer {
     top: 88%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 11; }
+    z-index: 10; }
     .container__home .mousedown-icon i {
       font-size: 2rem;
       color: #ffff;
       opacity: 0.3;
       animation: mousedown 1.5s ease-out infinite; }
-
-@keyframes blankslide {
-  0% {
-    width: 100%;
-    left: 0; }
-  100% {
-    left: 100%; } }
 
 @keyframes mousedown {
   to {
@@ -459,25 +501,32 @@ footer {
           background-image: url(/image/poster_4.jpg); }
   .container__end .netflix {
     width: 30%;
-    text-align: center;
-    cursor: none; }
+    text-align: center; }
     .container__end .netflix-text {
+      display: block;
       color: #00ffff;
       font-family: "Fira Sans", sans-serif;
       font-size: 2.5rem;
       letter-spacing: 0.3rem; }
     .container__end .netflix-btn {
+      display: block;
       position: relative;
-      margin: 4rem auto;
       width: 30rem;
       padding: 1.5rem 3rem;
+      margin: 3rem auto;
       font-size: 2rem;
       letter-spacing: 0.3rem;
       line-height: 4rem;
       font-weight: 800;
       font-family: "Trade Winds", cursive;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      overflow: hidden;
+      color: #00ffff;
+      text-decoration: none;
+      cursor: none; }
       .container__end .netflix-btn:before {
+        content: '';
+        position: absolute;
         top: 0;
         left: 0;
         border-top: 0.3rem solid #00ffff;
@@ -489,6 +538,8 @@ footer {
         height: 1.5rem;
         transition: all 0.4s cubic-bezier(0.6, 0, 0.08, 0.99); }
       .container__end .netflix-btn:after {
+        content: '';
+        position: absolute;
         bottom: 0;
         right: 0;
         border-bottom: 0.3rem solid #00ffff;
@@ -506,14 +557,8 @@ footer {
         background-color: #00ffff;
         box-shadow: 0 0 5rem #00ffff;
         transition: all 0.4s cubic-bezier(0.6, 0, 0.08, 0.99);
-        transition-delay: 0.1s; }
-      .container__end .netflix-btn a {
-        color: #00ffff;
-        text-decoration: none; }
-      .container__end .netflix-btn:hover a {
-        color: #000000;
-        transition: all 0.4s cubic-bezier(0.6, 0, 0.08, 0.99);
-        transition-delay: 0.1s; }
+        transition-delay: 0.1s;
+        color: #000000; }
 
 @keyframes slide {
   20% {

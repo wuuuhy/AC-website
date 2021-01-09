@@ -13,17 +13,6 @@
     z-index: 9;
   }
 
-  .black {
-    position: absolute;
-    height: 100vh;
-    width: 0%;
-    top: 0;
-    left: 0;
-    background-color: black;
-    z-index: 11;
-    animation: blankslide 2s cubic-bezier(0.6, 0, 0.05, 0.99);
-  }
-
   .home__text {
     position: absolute;
     width: 100%;
@@ -79,9 +68,9 @@
     }
 
     &:nth-child(5) {
-      background-image: url(/image/bg_1.png);
+      background-image: url(/image/bg_11.png);
       z-index: 6;
-      transform: translateY(8rem);
+      transform: translateY(20rem);
     }
   }
 
@@ -120,7 +109,7 @@
     top: 88%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 11;
+    z-index: 10;
 
     i {
       font-size: 2rem;
@@ -128,17 +117,6 @@
       opacity: 0.3;
       animation: mousedown 1.5s ease-out infinite;
     }
-  }
-}
-
-@keyframes blankslide {
-  0% {
-    width: 100%;
-    left: 0;
-  }
-
-  100% {
-    left: 100%;
   }
 }
 

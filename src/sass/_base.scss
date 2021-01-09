@@ -199,6 +199,84 @@ body::-webkit-scrollbar {
     transition: all 0.2s ease-out;
   }
 }
+.Loading {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+
+  .black {
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    background-color: black;
+    animation: blankslide 8s cubic-bezier(0.6, 0, 0.05, 0.99);
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 35%;
+      opacity: 0;
+      transform-origin: center;
+      animation: loadingicon 6s 1s ease-out;
+    }
+  }
+}
+
+@keyframes blankslide {
+  1% {
+    width: 100%;
+    left: 0;
+  }
+
+  90% {
+    width: 100%;
+    left: 0;
+  }
+
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}
+
+@keyframes loadingicon {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  70% {
+    transform: rotate(540deg);
+  }
+  90% {
+    transform: rotate(720deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(720deg);
+    opacity: 0;
+  }
+}
 
 footer {
   position: relative;

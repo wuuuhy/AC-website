@@ -100,9 +100,11 @@ document.addEventListener('scroll', () => {
   background[0].style.top = value * 0.1 + 'px';
   background[1].style.top = -value * 0.1 + 'px';
   background[2].style.top = -value * 0.3 + 'px';
-  background[3].style.top = -value * 0.6 + 'px';
+  background[3].style.top = -value * 0.3 + 'px';
+  background[4].style.top = -value * 0.6 + 'px';
   homeText.style.transform = `translate(-50%,${value * 0.3 + '%'})`;
 });
+console.log(background[3]);
 
 /*滾動效果*/
 
